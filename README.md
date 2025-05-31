@@ -192,9 +192,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👨‍💻 Author
 
 **NLP Agent Developer**
-- 🌐 [Live Demo](https://nlp-agent.streamlit.app)
-- 📧 Contact: [your-email@example.com]
-- 💼 LinkedIn: [Your LinkedIn Profile]
+- 🌐 [Live Demo](https://nlp-agentgit-vfa5qveehmppwtg27th6ku.streamlit.app)
+- 📧 Contact: [yassinebenacha1@gmail.com]
+- 💼 LinkedIn: [https://www.linkedin.com/in/yassine-ben-acha-64332b248]
 
 ---
 
