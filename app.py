@@ -143,10 +143,10 @@ def import_nlp_modules():
                 modules['nlp'] = spacy.load("en")
                 st.sidebar.success("✅ spaCy NER loaded (en model)")
             except OSError:
-                st.sidebar.warning("⚠️ spaCy model not found - using pattern-based NER")
+                st.sidebar.info("ℹ️ Using pattern-based NER (spaCy model not available)")
                 modules['nlp'] = None
     except Exception as e:
-        st.sidebar.warning(f"⚠️ spaCy NER not available: {str(e)[:30]}...")
+        st.sidebar.info("ℹ️ Using pattern-based NER (spaCy not installed)")
         modules['nlp'] = None
 
     return modules
