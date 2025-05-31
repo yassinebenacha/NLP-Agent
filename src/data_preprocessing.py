@@ -7,45 +7,56 @@ import string
 import pandas as pd
 import numpy as np
 from typing import List, Optional, Union
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.stem import WordNetLemmatizer
-from nltk.chunk import ne_chunk
-from nltk.tag import pos_tag
-import spacy
-from textblob import TextBlob
 
-# Download required NLTK data
+# Try to import NLTK components with fallbacks
 try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+    import nltk
+    from nltk.corpus import stopwords
+    from nltk.tokenize import word_tokenize, sent_tokenize
+    from nltk.stem import WordNetLemmatizer
+    NLTK_AVAILABLE = True
+except ImportError:
+    NLTK_AVAILABLE = False
 
+# Try to import spaCy with fallback
 try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    nltk.download('stopwords')
+    import spacy
+    SPACY_AVAILABLE = True
+except ImportError:
+    SPACY_AVAILABLE = False
 
+# Try to import TextBlob with fallback
 try:
-    nltk.data.find('corpora/wordnet')
-except LookupError:
-    nltk.download('wordnet')
+    from textblob import TextBlob
+    TEXTBLOB_AVAILABLE = True
+except ImportError:
+    TEXTBLOB_AVAILABLE = False
 
-try:
-    nltk.data.find('taggers/averaged_perceptron_tagger')
-except LookupError:
-    nltk.download('averaged_perceptron_tagger')
+# Download required NLTK data if available
+if NLTK_AVAILABLE:
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        try:
+            nltk.download('punkt', quiet=True)
+        except:
+            pass
 
-try:
-    nltk.data.find('chunkers/maxent_ne_chunker')
-except LookupError:
-    nltk.download('maxent_ne_chunker')
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        try:
+            nltk.download('stopwords', quiet=True)
+        except:
+            pass
 
-try:
-    nltk.data.find('corpora/words')
-except LookupError:
-    nltk.download('words')
+    try:
+        nltk.data.find('corpora/wordnet')
+    except LookupError:
+        try:
+            nltk.download('wordnet', quiet=True)
+        except:
+            pass
 
 
 class TextPreprocessor:
@@ -81,17 +92,45 @@ class TextPreprocessor:
         self.max_word_length = max_word_length
         self.language = language
         
-        # Initialize components
+        # Initialize components with fallbacks
         if self.remove_stopwords:
-            self.stop_words = set(stopwords.words(language))
-        
-        self.lemmatizer = WordNetLemmatizer()
-        
-        # Try to load spaCy model
-        try:
-            self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            print("Warning: spaCy model 'en_core_web_sm' not found. Some features may not work.")
+            if NLTK_AVAILABLE:
+                try:
+                    self.stop_words = set(stopwords.words(language))
+                except:
+                    # Fallback to basic stop words
+                    self.stop_words = {
+                        'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
+                        'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had',
+                        'this', 'that', 'these', 'those', 'a', 'an', 'as', 'if', 'it', 'its'
+                    }
+            else:
+                # Basic stop words fallback
+                self.stop_words = {
+                    'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
+                    'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had',
+                    'this', 'that', 'these', 'those', 'a', 'an', 'as', 'if', 'it', 'its'
+                }
+
+        # Initialize lemmatizer if available
+        if NLTK_AVAILABLE:
+            try:
+                self.lemmatizer = WordNetLemmatizer()
+            except:
+                self.lemmatizer = None
+        else:
+            self.lemmatizer = None
+
+        # Try to load spaCy model if available
+        if SPACY_AVAILABLE:
+            try:
+                self.nlp = spacy.load("en_core_web_sm")
+            except OSError:
+                try:
+                    self.nlp = spacy.load("en")
+                except OSError:
+                    self.nlp = None
+        else:
             self.nlp = None
     
     def clean_text(self, text: str) -> str:
@@ -149,19 +188,31 @@ class TextPreprocessor:
         if self.remove_numbers:
             text = re.sub(r'\d+', '', text)
         
-        # Tokenize
-        tokens = word_tokenize(text)
-        
+        # Tokenize with fallback
+        if NLTK_AVAILABLE:
+            try:
+                tokens = word_tokenize(text)
+            except:
+                # Simple fallback tokenization
+                tokens = re.findall(r'\b\w+\b', text)
+        else:
+            # Simple fallback tokenization
+            tokens = re.findall(r'\b\w+\b', text)
+
         # Remove stopwords
         if self.remove_stopwords:
             tokens = [token for token in tokens if token not in self.stop_words]
-        
+
         # Filter by word length
-        tokens = [token for token in tokens 
+        tokens = [token for token in tokens
                  if self.min_word_length <= len(token) <= self.max_word_length]
-        
-        # Lemmatize
-        tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+
+        # Lemmatize if available
+        if self.lemmatizer:
+            try:
+                tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+            except:
+                pass  # Skip lemmatization if it fails
         
         return ' '.join(tokens)
     
@@ -187,14 +238,24 @@ class TextPreprocessor:
     def extract_sentences(self, text: str) -> List[str]:
         """
         Extract sentences from text
-        
+
         Args:
             text: Input text
-            
+
         Returns:
             List of sentences
         """
-        return sent_tokenize(text)
+        if NLTK_AVAILABLE:
+            try:
+                return sent_tokenize(text)
+            except:
+                # Fallback to simple sentence splitting
+                sentences = re.split(r'[.!?]+', text)
+                return [s.strip() for s in sentences if s.strip()]
+        else:
+            # Simple sentence splitting fallback
+            sentences = re.split(r'[.!?]+', text)
+            return [s.strip() for s in sentences if s.strip()]
     
     def get_word_frequency(self, texts: List[str], top_n: int = 20) -> dict:
         """

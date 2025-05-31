@@ -30,7 +30,11 @@ except ImportError:
 # TextBlob for simple sentiment
 from textblob import TextBlob
 
-from config import SENTIMENT_CONFIG
+# Configuration constants (inline instead of config file)
+SENTIMENT_CONFIG = {
+    "model_name": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "max_length": 512
+}
 
 
 class SentimentAnalyzer:
