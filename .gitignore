@@ -136,15 +136,17 @@ data/processed/*
 !data/processed/.gitkeep
 models/*
 !models/.gitkeep
+!models/lda_model.pkl
+!models/tfidf_vectorizer.pkl
 results/*
 !results/.gitkeep
 visualizations/*
 !visualizations/.gitkeep
 
-# Large model files
+# Large model files (exclude big models but allow our small ones)
 *.bin
 *.h5
-*.pkl
+# *.pkl  # Commented out to allow our model files
 *.joblib
 
 # IDE
