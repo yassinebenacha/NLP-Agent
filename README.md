@@ -1,274 +1,189 @@
-# Advanced NLP Analysis Project
+# 🤖 NLP Agent - Interactive Web Application
 
-A comprehensive Natural Language Processing (NLP) project demonstrating advanced techniques in sentiment analysis, topic modeling, named entity recognition, and text summarization.
+A comprehensive Natural Language Processing web application built with Streamlit, featuring real-time text analysis with sentiment analysis, topic modeling, named entity recognition, and text summarization.
 
 ## 🎯 Project Overview
 
-This project showcases a complete NLP pipeline with the following components:
+This project provides an interactive web interface for advanced NLP analysis. Users can upload text or documents and get instant analysis results with visualizations and downloadable reports.
 
-1. **Sentiment Analysis** - Multi-approach sentiment classification (positive/neutral/negative)
-2. **Topic Modeling** - LDA and BERTopic for discovering latent topics
-3. **Named Entity Recognition (NER)** - Extract and classify named entities using spaCy
-4. **Text Summarization** - Both extractive and abstractive summarization techniques
+### 🌟 Key Features:
+1. **📊 Data Exploration** - Text statistics, word frequencies, and visualizations
+2. **😊 Sentiment Analysis** - Multi-approach sentiment classification with confidence scores
+3. **🎯 Topic Modeling** - LDA-based topic discovery with interactive charts
+4. **🏷️ Named Entity Recognition** - Extract people, organizations, locations, and more
+5. **📝 Text Summarization** - Multiple summarization methods with quality metrics
 
 ## 📁 Project Structure
 
 ```
-nlp_analysis_project/
+nlp-agent/
+├── app.py                    # 🚀 Main Streamlit application
+├── run_app.py               # 🎯 Application launcher script
+├── requirements.txt         # 📦 Essential dependencies for deployment
+├── README.md               # 📖 This file
+├── README_STREAMLIT.md     # 📚 Detailed app documentation
 ├── data/
-│   ├── raw/                  # Original dataset
-│   ├── processed/            # Cleaned and preprocessed data
-│   └── sample/               # Sample datasets for testing
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_sentiment_analysis.ipynb
-│   ├── 03_topic_modeling.ipynb
-│   ├── 04_named_entity_recognition.ipynb
-│   ├── 05_text_summarization.ipynb
-│   └── 06_comprehensive_analysis.ipynb
-├── src/
+│   ├── processed/          # 📊 Processed datasets for the app
+│   └── sample/             # 🧪 Sample data for testing
+├── notebooks/              # 📓 Jupyter notebooks for development
+│   ├── 01_data_exploration_fixed.ipynb
+│   ├── 03_topic_modeling_fixed.ipynb
+│   ├── 04_named_entity_recognition_fixed.ipynb
+│   └── 05_text_summarization_fixed.ipynb
+├── src/                    # 🔧 Core NLP modules
 │   ├── __init__.py
-│   ├── config.py             # Configuration settings
 │   ├── data_preprocessing.py
 │   ├── sentiment_analysis.py
-│   ├── topic_modeling.py
-│   ├── ner.py
-│   ├── summarization.py
-│   ├── evaluation.py         # Model evaluation utilities
-│   └── visualization.py     # Plotting utilities
-├── tests/                    # Unit tests
-├── visualizations/           # Output visualizations
-├── models/                   # Saved models
-├── results/                  # Analysis results and reports
-├── requirements.txt
-└── README.md
+│   └── simple_data_preprocessing.py
+├── models/                 # 🤖 Trained models
+│   ├── lda_model.pkl
+│   └── tfidf_vectorizer.pkl
+└── visualizations/         # 📈 Generated plots and charts
 ```
 
 ## 🚀 Quick Start
 
-### 1. Installation
+### 🌐 Option 1: Streamlit Cloud (Recommended)
+Access the live app instantly:
+```
+https://nlp-agent.streamlit.app
+```
 
+### 💻 Option 2: Local Installation
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd nlp_analysis_project
-
-# Create virtual environment
-python -m venv nlp_env
-source nlp_env/bin/activate  # On Windows: nlp_env\Scripts\activate
+git clone https://github.com/yourusername/nlp-agent.git
+cd nlp-agent
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Download spaCy model
-python -m spacy download en_core_web_sm
+# Launch the app
+streamlit run app.py
 ```
 
-### 2. Run the Analysis
-
-Start with the Jupyter notebooks in order:
-
+### 🎯 Option 3: Quick Launcher
 ```bash
-jupyter notebook notebooks/01_data_exploration.ipynb
+python run_app.py
 ```
 
-Or use the Python modules directly:
+### 📱 Using the App
+1. **Choose Analysis Tool** from the sidebar navigation
+2. **Input Text** by typing, uploading file, or using sample data
+3. **Analyze** and explore interactive results with visualizations
+4. **Download** results as CSV files for further analysis
 
-```python
-from src.sentiment_analysis import SentimentAnalyzer
-from src.topic_modeling import TopicModeler
-from src.ner import NamedEntityRecognizer
-from src.summarization import TextSummarizer
+## 🎯 Features
 
-# Initialize analyzers
-sentiment_analyzer = SentimentAnalyzer()
-topic_modeler = TopicModeler()
-ner = NamedEntityRecognizer()
-summarizer = TextSummarizer()
-```
+### 📊 Data Exploration
+- **Text Statistics**: Character count, word count, sentence analysis
+- **Word Frequency**: Interactive bar charts of most frequent terms
+- **Visualizations**: Word clouds and frequency distributions
+- **Export**: Download analysis results as CSV
 
-## 📊 Features
+### 😊 Sentiment Analysis
+- **Multiple Methods**: TextBlob, rule-based, and advanced algorithms
+- **Confidence Scores**: Visual gauge showing prediction confidence
+- **Sentence Analysis**: Breakdown of sentiment for individual sentences
+- **Real-time**: Instant analysis as you type or upload text
 
-### Sentiment Analysis
-- **Multiple Approaches**: TextBlob, Transformers (RoBERTa), Traditional ML
-- **Models**: Logistic Regression, Naive Bayes, SVM, Random Forest
-- **Evaluation**: Accuracy, Precision, Recall, F1-score, ROC-AUC
-- **Visualization**: Confidence distributions, confusion matrices
+### 🎯 Topic Modeling
+- **LDA Integration**: Uses pre-trained topic models
+- **Interactive Charts**: Topic probability distributions
+- **Word Analysis**: Top words for each discovered topic
+- **Fallback Methods**: Simple keyword-based topic detection
 
-### Topic Modeling
-- **LDA (Latent Dirichlet Allocation)**: Both scikit-learn and Gensim implementations
-- **BERTopic**: Modern transformer-based topic modeling
-- **Evaluation**: Coherence scores, perplexity
-- **Visualization**: Topic distributions, word clouds, interactive plots
+### 🏷️ Named Entity Recognition
+- **Advanced NER**: spaCy integration for accurate entity extraction
+- **Entity Types**: PERSON, ORG, GPE, MONEY, DATE, TIME, EMAIL, PHONE, URL
+- **Visual Highlighting**: Color-coded entities in original text
+- **Pattern Matching**: Robust fallback using regex patterns
 
-### Named Entity Recognition
-- **spaCy NER**: Pre-trained models for entity extraction
-- **Transformer NER**: BERT-based models for enhanced accuracy
-- **NLTK NER**: Traditional rule-based approach
-- **Entity Types**: PERSON, ORG, GPE, MONEY, DATE, and more
-- **Evaluation**: Precision, Recall, F1-score by entity type
-
-### Text Summarization
-- **Extractive Methods**: TextRank, TF-IDF based selection
-- **Abstractive Methods**: BART, T5 transformer models
-- **Evaluation**: ROUGE scores, BERT Score
-- **Comparison**: Multiple methods side-by-side analysis
-
-## 📈 Sample Results
-
-### Sentiment Analysis Performance
-| Model | Accuracy | Precision | Recall | F1-Score |
-|-------|----------|-----------|--------|----------|
-| RoBERTa | 0.92 | 0.91 | 0.92 | 0.91 |
-| Logistic Regression | 0.85 | 0.84 | 0.85 | 0.84 |
-| Naive Bayes | 0.82 | 0.81 | 0.82 | 0.81 |
-
-### Topic Modeling Results
-- **LDA Coherence Score**: 0.45
-- **BERTopic Topics Found**: 8 distinct topics
-- **Most Coherent Topic**: Technology and AI (coherence: 0.62)
+### 📝 Text Summarization
+- **Multiple Algorithms**: Frequency-based, TF-IDF, and transformer methods
+- **Customizable**: Adjustable summary length and method selection
+- **Quality Metrics**: Compression ratio and reduction statistics
+- **Comparison View**: Side-by-side original and summary display
 
 ## 🛠️ Technologies Used
 
-### Core Libraries
+### 🌐 Web Framework
+- **Streamlit**: Interactive web application framework
+- **Plotly**: Interactive visualizations and charts
+- **Matplotlib**: Static plotting and visualizations
+
+### 🔧 Core Libraries
 - **pandas**: Data manipulation and analysis
 - **numpy**: Numerical computing
-- **scikit-learn**: Machine learning algorithms
-- **matplotlib/seaborn**: Data visualization
-- **plotly**: Interactive visualizations
+- **scikit-learn**: Machine learning algorithms and TF-IDF
 
-### NLP Libraries
+### 🤖 NLP Libraries
 - **nltk**: Natural language processing toolkit
-- **spacy**: Industrial-strength NLP
-- **transformers**: State-of-the-art transformer models
-- **sentence-transformers**: Sentence embeddings
-- **bertopic**: Advanced topic modeling
-- **gensim**: Topic modeling and document similarity
+- **textblob**: Simple sentiment analysis
+- **spacy**: Advanced named entity recognition (optional)
 
-### Specialized Tools
-- **rouge-score**: Summarization evaluation
-- **bert-score**: Semantic similarity evaluation
-- **wordcloud**: Word cloud generation
-- **pyLDAvis**: LDA visualization
+### 📊 Key Features
+- **Responsive Design**: Works on desktop and mobile
+- **Real-time Processing**: Instant analysis and results
+- **Export Functionality**: Download results as CSV
+- **Error Handling**: Graceful fallbacks for missing dependencies
 
-## 📝 Usage Examples
+## 🎨 Screenshots
+
+### Home Page
+![Home Page](visualizations/home_page.png)
 
 ### Sentiment Analysis
-```python
-from src.sentiment_analysis import SentimentAnalyzer
-
-analyzer = SentimentAnalyzer()
-
-# Analyze single text
-result = analyzer.predict_sentiment("This product is amazing!", method='transformer')
-print(result)  # {'sentiment': 'positive', 'confidence': 0.95}
-
-# Analyze dataset
-df_results = analyzer.analyze_sentiment_distribution(df, 'text_column')
-```
+![Sentiment Analysis](visualizations/sentiment_analysis.png)
 
 ### Topic Modeling
-```python
-from src.topic_modeling import TopicModeler
+![Topic Modeling](visualizations/topic_modeling.png)
 
-modeler = TopicModeler()
+## 💡 Development
 
-# Train BERTopic model
-results = modeler.train_bertopic(texts, min_topic_size=10)
+### 📓 Jupyter Notebooks
+For development and experimentation, explore the notebooks:
+- `01_data_exploration_fixed.ipynb` - Data analysis and visualization
+- `03_topic_modeling_fixed.ipynb` - LDA model training
+- `04_named_entity_recognition_fixed.ipynb` - NER development
+- `05_text_summarization_fixed.ipynb` - Summarization techniques
 
-# Get document topics
-doc_topics = modeler.get_document_topics(texts, model_type='bertopic')
-```
-
-### Named Entity Recognition
-```python
-from src.ner import NamedEntityRecognizer
-
-ner = NamedEntityRecognizer()
-
-# Extract entities
-entities = ner.extract_entities("Apple Inc. was founded by Steve Jobs.", method='spacy')
-
-# Analyze dataset
-df_entities = ner.analyze_entities_in_dataset(df, 'text_column')
-```
-
-### Text Summarization
-```python
-from src.summarization import TextSummarizer
-
-summarizer = TextSummarizer()
-
-# Generate summary
-summary = summarizer.summarize_text(long_text, method='textrank', num_sentences=3)
-
-# Compare methods
-comparison = summarizer.compare_summarization_methods(text)
-```
-
-## 🧪 Testing
-
-Run the test suite:
-
+### 🔧 Local Development
 ```bash
-python -m pytest tests/ -v
+# Install development dependencies
+pip install jupyter notebook
+
+# Start Jupyter
+jupyter notebook notebooks/
+
+# Or run the Streamlit app locally
+streamlit run app.py
 ```
 
-## 📊 Evaluation Metrics
+## 🚀 Deployment
 
-### Classification Tasks
-- **Accuracy**: Overall correctness
-- **Precision**: True positives / (True positives + False positives)
-- **Recall**: True positives / (True positives + False negatives)
-- **F1-Score**: Harmonic mean of precision and recall
-- **ROC-AUC**: Area under the ROC curve
+### Streamlit Cloud
+1. Push your code to GitHub
+2. Connect to [Streamlit Cloud](https://streamlit.io/cloud)
+3. Deploy with one click
+4. Your app will be live at `https://your-app.streamlit.app`
 
-### Topic Modeling
-- **Coherence Score**: Semantic coherence of topics
-- **Perplexity**: Model's uncertainty (lower is better)
-- **Topic Diversity**: Uniqueness of discovered topics
+### Local Deployment
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-### Summarization
-- **ROUGE-1/2/L**: Overlap with reference summaries
-- **BERT Score**: Semantic similarity with references
-- **Compression Ratio**: Summary length / Original length
-
-## 🎨 Visualizations
-
-The project includes comprehensive visualizations:
-
-- **Sentiment Distribution**: Bar charts and pie charts
-- **Text Length Analysis**: Histograms and box plots
-- **Word Clouds**: Visual representation of frequent terms
-- **Topic Visualization**: Interactive topic maps
-- **Entity Distribution**: Entity type frequency charts
-- **Model Comparison**: Performance comparison plots
-- **Confusion Matrices**: Classification error analysis
-
-## 🔧 Configuration
-
-Modify `src/config.py` to customize:
-
-- Model parameters
-- File paths
-- Visualization settings
-- Evaluation metrics
-- Processing options
-
-## 📚 References
-
-- [Transformers Documentation](https://huggingface.co/transformers/)
-- [spaCy Documentation](https://spacy.io/)
-- [BERTopic Documentation](https://maartengr.github.io/BERTopic/)
-- [Gensim Documentation](https://radimrehurek.com/gensim/)
+# Run the app
+streamlit run app.py --server.port 8501
+```
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
@@ -276,8 +191,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 
-Data Science Intern Candidate - Advanced NLP Project
+**NLP Agent Developer**
+- 🌐 [Live Demo](https://nlp-agent.streamlit.app)
+- 📧 Contact: [your-email@example.com]
+- 💼 LinkedIn: [Your LinkedIn Profile]
 
 ---
 
-**Note**: This project is designed for educational and demonstration purposes, showcasing advanced NLP techniques and best practices in machine learning project organization.
+**🎯 Perfect for showcasing NLP skills in internship applications and technical interviews!**

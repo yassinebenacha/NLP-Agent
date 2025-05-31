@@ -1,29 +1,18 @@
 """
-NLP Analysis Project
+NLP Agent - Streamlit Application
 
-A comprehensive NLP analysis toolkit for sentiment analysis, topic modeling,
-named entity recognition, and text summarization.
+Essential NLP modules for the Streamlit web application.
 """
 
 __version__ = "1.0.0"
-__author__ = "Data Science Intern Candidate"
+__author__ = "NLP Agent Developer"
 
-from . import config
 from . import data_preprocessing
 from . import sentiment_analysis
-from . import topic_modeling
-from . import ner
-from . import summarization
-from . import evaluation
-from . import visualization
+from . import simple_data_preprocessing
 
 __all__ = [
-    "config",
-    "data_preprocessing", 
+    "data_preprocessing",
     "sentiment_analysis",
-    "topic_modeling",
-    "ner", 
-    "summarization",
-    "evaluation",
-    "visualization"
+    "simple_data_preprocessing"
 ]
