@@ -46,7 +46,7 @@ nlp-agent/
 ### 🌐 Option 1: Streamlit Cloud (Recommended)
 Access the live app instantly:
 ```
-https://nlp-agentgit-vfa5qveehmppwtg27th6ku.streamlit.app
+https://nlp-agentgit-wqyfanfpqhl7wstfazemdy.streamlit.app
 ```
 
 ### 💻 Option 2: Local Installation
@@ -192,7 +192,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👨‍💻 Author
 
 **NLP Agent Developer**
-- 🌐 [Live Demo](https://nlp-agentgit-vfa5qveehmppwtg27th6ku.streamlit.app)
+- 🌐 [Live Demo](https://nlp-agentgit-wqyfanfpqhl7wstfazemdy.streamlit.app/)
 - 📧 Contact: [yassinebenacha1@gmail.com]
 - 💼 LinkedIn: [https://www.linkedin.com/in/yassine-ben-acha-64332b248]
 
