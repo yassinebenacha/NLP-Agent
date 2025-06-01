@@ -197,5 +197,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - 💼 LinkedIn: [https://www.linkedin.com/in/yassine-ben-acha-64332b248]
 
 ---
-
-**🎯 Perfect for showcasing NLP skills in internship applications and technical interviews!**
