@@ -301,7 +301,7 @@ def main():
     st.markdown("""
     <div class="footer">
         Â© 2025 YASSINE BEN ACHA | NLP Agent - Advanced Text Analysis Platform |
-        ï¿½ <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">WhatsApp</a> |
+        í³± <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">WhatsApp</a> |
         âœ‰ï¸ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a> |
         ğŸŒ <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Portfolio</a>
     </div>
