@@ -249,6 +249,14 @@ def main():
     elif page == "📝 Text Summarization":
         show_text_summarization(current_text, modules)
 
+    # Add footer with copyright
+    st.markdown("""
+    <div class="footer">
+        © 2025 YASSINE BEN ACHA | NLP Agent - Advanced Text Analysis Platform |
+        📞 +212 696 545 641 | ✉️ yassinebenacha1@gmail.com
+    </div>
+    """, unsafe_allow_html=True)
+
 def show_home_page():
     """Display home page"""
     
@@ -295,6 +303,17 @@ def show_home_page():
         - Multiple documents can be analyzed by uploading CSV files
         - All processing is done locally for privacy
         """)
+
+        # Contact Information
+        st.markdown("""
+        <div class="contact-info">
+            <h3 style="color: #17a2b8; margin-bottom: 1rem;">👨‍💻 Developer Contact</h3>
+            <div class="contact-item"><strong>🧑‍💼 YASSINE BEN ACHA</strong></div>
+            <div class="contact-item">📞 +212 696 545 641</div>
+            <div class="contact-item">✉️ yassinebenacha1@gmail.com</div>
+            <div class="contact-item">🌐 Mon portfolio</div>
+        </div>
+        """, unsafe_allow_html=True)
 
 def show_data_exploration(text, modules):
     """Data exploration page"""
