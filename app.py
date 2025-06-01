@@ -276,7 +276,7 @@ def main():
         <h4 style="color: #1f77b4; margin-bottom: 0.5rem;">🤖 AI Engineer & ML Expert</h4>
         <div style="font-size: 0.9rem;">
             <div><strong>YASSINE BEN ACHA</strong></div>
-            <div>� <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">+212 696 545 641 (WhatsApp)</a></div>
+            <div>📱 <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">+212 696 545 641 (WhatsApp)</a></div>
             <div>✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a></div>
             <div>🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Mon portfolio</a></div>
         </div>
@@ -301,7 +301,7 @@ def main():
     st.markdown("""
     <div class="footer">
         © 2025 YASSINE BEN ACHA | NLP Agent - Advanced Text Analysis Platform |
-        📞 <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">+212 696 545 641</a> |
+        � <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">WhatsApp</a> |
         ✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a> |
         🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Portfolio</a>
     </div>
@@ -359,7 +359,7 @@ def show_home_page():
         <div class="contact-info">
             <h3 style="color: #17a2b8; margin-bottom: 1rem;">🤖 AI Engineer & Machine Learning Expert</h3>
             <div class="contact-item"><strong>🧑‍💼 YASSINE BEN ACHA</strong></div>
-            <div class="contact-item">� <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">+212 696 545 641 (WhatsApp)</a></div>
+            <div class="contact-item">📱 <a href="https://wa.me/212696545641" target="_blank" style="text-decoration: none; color: inherit;">+212 696 545 641 (WhatsApp)</a></div>
             <div class="contact-item">✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a></div>
             <div class="contact-item">🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Mon portfolio</a></div>
         </div>
