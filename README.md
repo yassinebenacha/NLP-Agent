@@ -46,13 +46,13 @@ nlp-agent/
 ### 🌐 Option 1: Streamlit Cloud (Recommended)
 Access the live app instantly:
 ```
-https://nlp-agent.streamlit.app
+https://nlp-agentgit-vfa5qveehmppwtg27th6ku.streamlit.app
 ```
 
 ### 💻 Option 2: Local Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/nlp-agent.git
+git clone https://github.com/yassinebenacha/NLP-Agent.git
 cd nlp-agent
 
 # Install dependencies
