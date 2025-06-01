@@ -22,7 +22,7 @@ sys.path.append('src')
 
 # Page configuration
 st.set_page_config(
-    page_title="NLP Agent",
+    page_title="NLP Agent - YASSINE BEN ACHA",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -64,6 +64,32 @@ st.markdown("""
         border-radius: 0.25rem;
         padding: 0.75rem;
         margin: 1rem 0;
+    }
+    .contact-info {
+        background-color: #e8f4fd;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+        border-left: 4px solid #1f77b4;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .contact-item {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        color: #333;
+    }
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        color: #666;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 0.85rem;
+        border-top: 1px solid #dee2e6;
+        z-index: 999;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -234,6 +260,20 @@ def main():
     
     # Update session state
     st.session_state.current_text = current_text
+
+    # Contact information in sidebar
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("""
+    <div style="background-color: #f0f8ff; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #1f77b4;">
+        <h4 style="color: #1f77b4; margin-bottom: 0.5rem;">👨‍💻 Developer</h4>
+        <div style="font-size: 0.9rem;">
+            <div><strong>YASSINE BEN ACHA</strong></div>
+            <div>📞 +212 696 545 641</div>
+            <div>✉️ yassinebenacha1@gmail.com</div>
+            <div>🌐 Mon portfolio</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Main content area
     if page == "🏠 Home":
