@@ -91,6 +91,14 @@ st.markdown("""
         border-top: 1px solid #dee2e6;
         z-index: 999;
     }
+    .footer a:hover {
+        color: #1f77b4 !important;
+        text-decoration: underline !important;
+    }
+    .contact-info a:hover {
+        color: #1f77b4 !important;
+        text-decoration: underline !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -268,9 +276,9 @@ def main():
         <h4 style="color: #1f77b4; margin-bottom: 0.5rem;">👨‍💻 Developer</h4>
         <div style="font-size: 0.9rem;">
             <div><strong>YASSINE BEN ACHA</strong></div>
-            <div>📞 +212 696 545 641</div>
-            <div>✉️ yassinebenacha1@gmail.com</div>
-            <div>🌐 Mon portfolio</div>
+            <div>📞 <a href="tel:+212696545641" style="text-decoration: none; color: inherit;">+212 696 545 641</a></div>
+            <div>✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a></div>
+            <div>🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Mon portfolio</a></div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -293,7 +301,9 @@ def main():
     st.markdown("""
     <div class="footer">
         © 2025 YASSINE BEN ACHA | NLP Agent - Advanced Text Analysis Platform |
-        📞 +212 696 545 641 | ✉️ yassinebenacha1@gmail.com
+        📞 <a href="tel:+212696545641" style="text-decoration: none; color: inherit;">+212 696 545 641</a> |
+        ✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a> |
+        🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Portfolio</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -349,9 +359,9 @@ def show_home_page():
         <div class="contact-info">
             <h3 style="color: #17a2b8; margin-bottom: 1rem;">👨‍💻 Developer Contact</h3>
             <div class="contact-item"><strong>🧑‍💼 YASSINE BEN ACHA</strong></div>
-            <div class="contact-item">📞 +212 696 545 641</div>
-            <div class="contact-item">✉️ yassinebenacha1@gmail.com</div>
-            <div class="contact-item">🌐 Mon portfolio</div>
+            <div class="contact-item">📞 <a href="tel:+212696545641" style="text-decoration: none; color: inherit;">+212 696 545 641</a></div>
+            <div class="contact-item">✉️ <a href="mailto:yassinebenacha1@gmail.com" style="text-decoration: none; color: inherit;">yassinebenacha1@gmail.com</a></div>
+            <div class="contact-item">🌐 <a href="https://portfolio-pro-phi.vercel.app" target="_blank" style="text-decoration: none; color: inherit;">Mon portfolio</a></div>
         </div>
         """, unsafe_allow_html=True)
 
